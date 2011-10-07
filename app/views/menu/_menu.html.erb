@@ -1,0 +1,15 @@
+<% pages.each do |page| %>
+	<% if !page.inactief  %>
+		<% if page.children.size>0 %>
+		<li id="page_<%= page.id %>" data-dropdown="dropdown" class="dropdown normal<%= " active" if @permalink==page.permalink || (@permalink=="root"&&page.permalink=="home") %><%= " menu_editable_page" if can? :update, page %>"><a href="/<%= page.permalink %>" class="dropdown-toggle"><%= page.title %></a>
+			<ul class="dropdown-menu<%=" editable".html_safe if can? :create, Page %>">
+				<%= render 'menu/menu' ,:pages => page.children, :parent_id => page.id %>
+			</ul>
+		<% else %>
+		<li id="page_<%= page.id %>" class="normal<%= " active" if @permalink==page.permalink || (@permalink=="root"&&page.permalink=="home") %><%= " menu_editable_page" if can? :update, page %>"><a href="/<%= page.permalink %>"><%= page.title %></a>
+		<% end %>
+	<% end %>
+<% end if pages.size>0 %>
+<% if can? :create, Page %>
+	<li class="addpage" related="<%= parent_id %>"><a href="#">[[new]]</a></li>
+<% end %>

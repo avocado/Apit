@@ -1,0 +1,10 @@
+<div id="picasacontainer">
+	<% @fotos["entry"].each do |foto| %>
+	<% if foto["group"][0]["content"].class.to_s=="Hash" %>
+	<a href="<%= foto["group"][0]["content"]["url"] %>?imgmax=900" rel="lightbox-aescu">
+			<img src="<%= foto["group"][0]["thumbnail"][1]["url"] %>">
+	</a>
+	<% end %>
+	
+	<% end %>
+</div>

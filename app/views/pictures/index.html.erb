@@ -1,0 +1,6 @@
+<h1>Zeer brave foto's voor het publiek</h1>
+<div id="picasacontainer">
+	<% @albums.each do |album| %>
+		<div class="album"><a href="<%= album[:url] %>"><img src="<%= album[:thumb] %>"></a><div class="title"><%= album[:title] %></div></div>
+	<% end %>
+</div>

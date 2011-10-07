@@ -1,0 +1,15 @@
+<h1>Activiteiten</h1>
+<p></p>
+<% @activities.each do |activity| %>
+<% if activity.subscribers>0 %>
+<h1><%=h activity.name %> (<%=(l activity.date, :format=>"%A %d / %m").capitalize %>)</h1>
+<ul>
+<% totaal = 0 %>
+<% activity.subscriptions.each do |sub| %>
+<% totaal+= sub.vrienden + 1 %>
+<li><%= sub.user.naam %> + <%=sub.vrienden.to_s%> vrienden (totaal: <%=(1+sub.vrienden).to_s%>)</li>
+<% end %>
+<li><em>Totaal: <%= totaal %> (van <%=activity.subscribers%>)</em></li>
+</ul>
+<% end %>
+<% end %>

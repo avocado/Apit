@@ -1,0 +1,16 @@
+		<div class="ing">Ingeschreven:</div>
+		<div class="knoppen">
+			<div class="links"><%= image_tag('/images/min.png', :class=>"substract") %></div>
+			<div class="getal">
+		<% if !current_user.nil? && activity.users.include?(current_user) %>
+			<% aantal = 1 %>
+			<% vrienden = current_user.subscriptions.find_by_activity_id(activity.id).vrienden %>
+			<% aantal+=vrienden if !vrienden.nil? %>
+			<%= aantal %>
+		<% else %>
+			0
+		<% end %>
+			</div>
+		 	<div class="rechts"><%= image_tag('/images/plus.png',:class=>"add") %></div>
+			<div class="rest">(nog <%= @vrij %> vrij)</div>
+		</div>

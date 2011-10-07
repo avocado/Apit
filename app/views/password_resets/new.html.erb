@@ -1,0 +1,11 @@
+<h1>Wachtwoord vergeten?</h1>
+
+<p>Vul hieronder je email adres in; dan sturen we je een link om je wachtwoord te resetten!</p><br />
+<table>
+<% form_tag password_resets_path do %>
+  <tr><td>Email:</td>
+  <td><%= text_field_tag "email" %></td>
+	</tr>
+  <tr><td></td><td><%= submit_tag "Reset mijn wachtwoord!" %></td></tr>
+<% end %>
+</table>

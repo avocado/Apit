@@ -1,0 +1,9 @@
+	<% @folders.each do |f| %>
+		<h2><%=h f.name %></h2>
+		<table>
+		<% f.upload_files.each do |file| %>
+			<tr><td width="300px"><%=h file.filename %></td><td><%= link_to 'Edit', edit_upload_file_path(file) %> </td><td><%= link_to 'Verwijderen', file, :confirm => 'Are you sure?', :method => :delete %></td></tr>
+		<% end %>
+		</table>
+	<% end %>
+<p><a href="/upload_files/new">Nieuw bestand uploaden</a></p>

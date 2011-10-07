@@ -1,0 +1,8 @@
+<%= simple_form_for @user do |f| %>
+    <%= f.input :firstname, :label=>"Voornaam", :input_html=>{:class=>'span10'} %>
+		<%= f.input :lastname, :label=>"Achternaam", :input_html=>{:class=>'span10'} %>
+		<%= f.input :email, :label=>"Je e-mail adres", :input_html=>{:class=>'span10'} %>
+    <%= f.input :password, :label=>"Wachtwoord", :input_html=>{:class=>'span8'} %>
+    <%= f.input :password_confirmation, :label=>"Herhaling van wachtwoord", :input_html=>{:class=>'span8'} %>
+		<%= f.button :submit, :class => 'btn primary' %>
+<% end %>

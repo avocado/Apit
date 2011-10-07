@@ -1,0 +1,111 @@
+<% title "User Details" %>
+
+<div class="well">
+  
+
+  <p>
+    <strong>Username:</strong>
+	  <%= @user.username %>
+  </p>
+  
+  <p>
+    <strong>Email:</strong>
+	  <%= @user.email %>
+  </p>
+  
+  <p>
+    <strong>Encrypted Password:</strong>
+	  <%= @user.encrypted_password %>
+  </p>
+  
+  <p>
+    <strong>Password Salt:</strong>
+	  <%= @user.password_salt %>
+  </p>
+  
+  <p>
+    <strong>Firstname:</strong>
+	  <%= @user.firstname %>
+  </p>
+  
+  <p>
+    <strong>Lastname:</strong>
+	  <%= @user.lastname %>
+  </p>
+  
+  <p>
+    <strong>Confirmation Token:</strong>
+	  <%= @user.confirmation_token %>
+  </p>
+  
+  <p>
+    <strong>Confirmed At:</strong>
+	  <%= @user.confirmed_at %>
+  </p>
+  
+  <p>
+    <strong>Confirmation Sent At:</strong>
+	  <%= @user.confirmation_sent_at %>
+  </p>
+  
+  <p>
+    <strong>Reset Password Token:</strong>
+	  <%= @user.reset_password_token %>
+  </p>
+  
+  <p>
+    <strong>Remember Token:</strong>
+	  <%= @user.remember_token %>
+  </p>
+  
+  <p>
+    <strong>Remember Created At:</strong>
+	  <%= @user.remember_created_at %>
+  </p>
+  
+  <p>
+    <strong>Unlock Token:</strong>
+	  <%= @user.unlock_token %>
+  </p>
+  
+  <p>
+    <strong>Locked At:</strong>
+	  <%= @user.locked_at %>
+  </p>
+  
+  <p>
+    <strong>Current Sign In At:</strong>
+	  <%= @user.current_sign_in_at %>
+  </p>
+  
+  <p>
+    <strong>Last Sign In At:</strong>
+	  <%= @user.last_sign_in_at %>
+  </p>
+  
+  <p>
+    <strong>Current Sign In Ip:</strong>
+	  <%= @user.current_sign_in_ip %>
+  </p>
+  
+  <p>
+    <strong>Last Sign In Ip:</strong>
+	  <%= @user.last_sign_in_ip %>
+  </p>
+  
+  <p>
+    <strong>Sign In Count:</strong>
+	  <%= @user.sign_in_count %>
+  </p>
+  
+  <p>
+    <strong>Failed Attempts:</strong>
+	  <%= @user.failed_attempts %>
+  </p>
+  </div>
+
+<p>
+  <%= link_to "Edit", edit_user_path(@user), :class => 'btn float-right' %> |
+  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'btn float-right' %> |
+  <%= link_to "View All", users_path, :class => 'btn float-right' %>
+</p>

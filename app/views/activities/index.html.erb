@@ -1,0 +1,28 @@
+<h1>Activiteiten</h1>
+<p></p>
+<% @activities.each do |activity| %>
+<div class="activiteit">
+<div class="header"><%=h activity.name %></div>
+<div class="randinfo"><%=h activity.randinfo %></div>
+<div class="datum"><%=(l activity.date, :format=>"%A %d / %m").capitalize %></div>
+<div class="uur"><%=l activity.date, :format=>"%H:%M uur" %></div>
+<div class="lokatie">@ <%=h activity.location %></div>
+<div class="deletebutton"><%= link_to image_tag('/images/min.png'), activity, :confirm => 'Zeker weten?', :method => :delete if can? :destroy, activity%></div>
+<div class="editbutton"><%= link_to image_tag('/images/edit.png'), edit_activity_path(activity) if can? :update, activity %></div>
+</div>
+<% if !activity.subscribers.nil? && activity.subscribers>0 %>
+<% @vrij=activity.subscribers.to_i %>
+<% deelnemers=activity.subscriptions.size %>
+<% vrienden = activity.subscriptions.sum(:vrienden).to_i %>
+<% @vrij-=vrienden %>
+<% @vrij-=deelnemers %>
+	<% if Time.now > activity.start_subscribe %>
+		<div class="subscribepanel act" act_id="<%=activity.id%>" id="sub_act_<%=activity.id%>">
+			<%= render 'subscribepanel', :activity => activity, :vrij=>@vrij %>
+		</div>
+	<% end %>
+<% end %>
+<% end %>
+
+
+<div class="plusbutton"><%= link_to image_tag('/images/plus.png'), new_activity_path if can? :create, Activity %></div>

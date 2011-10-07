@@ -1,0 +1,99 @@
+<% title "Users" %>
+
+<div class="well">
+	<table class="zebra-striped">
+	  <tr>
+
+	    <th>Username</th>
+
+	    <th>Email</th>
+
+	    <th>Encrypted Password</th>
+
+	    <th>Password Salt</th>
+
+	    <th>Firstname</th>
+
+	    <th>Lastname</th>
+
+	    <th>Confirmation Token</th>
+
+	    <th>Confirmed At</th>
+
+	    <th>Confirmation Sent At</th>
+
+	    <th>Reset Password Token</th>
+
+	    <th>Remember Token</th>
+
+	    <th>Remember Created At</th>
+
+	    <th>Unlock Token</th>
+
+	    <th>Locked At</th>
+
+	    <th>Current Sign In At</th>
+
+	    <th>Last Sign In At</th>
+
+	    <th>Current Sign In Ip</th>
+
+	    <th>Last Sign In Ip</th>
+
+	    <th>Sign In Count</th>
+
+	    <th>Failed Attempts</th>
+      <th></th>
+      <th></th>
+      <th></th>
+	  </tr>
+	  <% @users.each do |user| %>
+	    <tr>
+
+	      <td><%= user.username %></td>
+
+	      <td><%= user.email %></td>
+
+	      <td><%= user.encrypted_password %></td>
+
+	      <td><%= user.password_salt %></td>
+
+	      <td><%= user.firstname %></td>
+
+	      <td><%= user.lastname %></td>
+
+	      <td><%= user.confirmation_token %></td>
+
+	      <td><%= user.confirmed_at %></td>
+
+	      <td><%= user.confirmation_sent_at %></td>
+
+	      <td><%= user.reset_password_token %></td>
+
+	      <td><%= user.remember_token %></td>
+
+	      <td><%= user.remember_created_at %></td>
+
+	      <td><%= user.unlock_token %></td>
+
+	      <td><%= user.locked_at %></td>
+
+	      <td><%= user.current_sign_in_at %></td>
+
+	      <td><%= user.last_sign_in_at %></td>
+
+	      <td><%= user.current_sign_in_ip %></td>
+
+	      <td><%= user.last_sign_in_ip %></td>
+
+	      <td><%= user.sign_in_count %></td>
+
+	      <td><%= user.failed_attempts %></td>
+	      <td><%= link_to "Show", user %></td>
+	      <td><%= link_to "Edit", edit_user_path(user) %></td>
+	      <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
+	    </tr>
+	  <% end %>
+	</table>
+</div>
+<p><%= link_to "New User", new_user_path, :class => 'btn primary float-right' %></p>

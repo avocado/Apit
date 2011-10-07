@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Dokters 2012" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body class="with-header">
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <h3><%= link_to 'DOKTERS 2012', '#' %></h3>
+					<ul class="nav<%=" editable".html_safe if can? :create, Page %>">
+						<%= render :partial=>"menu/menu" , :locals=>{:pages=>@root_page.children, :parent_id=>@root_page.id }%>
+					 </ul>
+					<%= render 'share/loginstatus'%>
+        </div>
+      </div>
+
+    </div>
+    <div class="container">
+	    <% flash.each do |key, value| %>
+	      <% css_class = key.eql?('notice') ? 'success' : 'error' %>
+	      <%= render(:partial=>'share/flash', :locals => { :css => key, :message => value }) %>
+	    <% end %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= yield %>
+      <footer>
+        <p>&copy; De dokters van 2012</p>
+      </footer>
+    </div>
+  </body>
+</html>

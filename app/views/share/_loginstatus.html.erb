@@ -1,0 +1,26 @@
+<ul class="nav secondary-nav">
+	<% if user_signed_in? %>
+	<li class="dropdown" data-dropdown="dropdown">
+    <a href="#" class="dropdown-toggle">Mijn account</a>
+    <ul class="dropdown-menu">
+			<%= render 'share/adminmenu' if !current_user.nil? && (current_user.role?(:webmaster) || current_user.role?(:administrator)) %>
+ 			<li><%=link_to "Log uit!", :destroy_user_session, :method=>:delete %></li>
+   </ul>
+  </li>
+	<% else %>
+  <li class="dropdown" data-dropdown="dropdown">
+    <a href="#" class="dropdown-toggle">Log in</a>
+    <ul class="dropdown-menu">
+      <li>
+				<div class="clearfix loginform">
+					<%= simple_form_for(:user, :as => :user, :url => session_path(:user)) do |f| %>
+					    <%= f.input :email, :label=>false, :input_html=>{:class=>'span3', :placeholder=>'E-mail adres'} %>
+							<%= f.input :password, :label=>false, :input_html=>{:class=>'span3', :placeholder=>'Password'} %>
+							<%= f.button :submit, :class => 'btn primary', :value=>"Log in!" %>
+					<% end %>
+				</div>
+			</li>
+    </ul>
+  </li>
+	<% end %>
+</ul>

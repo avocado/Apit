@@ -1,0 +1,49 @@
+<% form_for(@activity) do |f| %>
+<% if @activity.errors.any? %>
+    <div id="error_explanation">
+
+      <ul>
+      <% @activity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %><table>
+  <tr>
+    <td>Naam:</td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td>Subtitel:</td>
+    <td><%= f.text_field :randinfo %></td>
+  </tr>
+  <tr>
+    <td>Lokatie: </td>
+    <td><%= f.text_field :location %></td>
+	</tr>
+  <tr>
+    <td>Datum</td>
+    <td><%= f.datetime_select :date %></td>
+  </tr>
+  <tr>
+    <td>Max deelnemers:</td>
+    <td><%= f.text_field :subscribers %>
+		<em>Vul 0 in, als dit niet van toepassing is</em></td>
+  </tr>
+  <tr>
+    <td>Hoeveel extra vrienden mag iemand meenemen:</td>
+    <td><%= f.text_field :friends %>
+		<em>Vul 0 in, als dit niet van toepassing is</em></td>
+  </tr>
+  <tr>
+    <td>Indien van toepassing; vanaf wanneer moet de inschrijflijst online komen?</td>
+    <td><%= f.datetime_select :start_subscribe %></td>
+  </tr>
+  <tr>
+		<td>Inhoud van mail als iemand zich inschrijft:<br /><em>Vermeldt hierin nog eens de eventuele kosten, en hoe die voldaan moeten worden</em></td>
+    <td><br /><br /><em>Beste,</em><br /><br /><%= f.text_area :mail %><br /><br /><em>Vriendelijke groet, Aesculapia</em><br /><br />
+	</tr>
+  <tr><td></td>
+    <td><%= f.submit 'Update' %></td>
+  </tr>
+<% end %>

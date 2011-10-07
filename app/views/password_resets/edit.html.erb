@@ -1,0 +1,17 @@
+<h1>Verander mijn wachtwoord!</h1>
+<p>Je kan nu je wachtwoord opnieuw instellen!</p>
+<% form_for @user, :url => password_reset_path, :method => :put do |f| %>
+  <%= f.error_messages %>
+<table>  
+<tr><td>
+    Je wachtwoord</td>
+    <td><%= f.password_field :password %></td>
+  </tr>
+  <tr><td>
+    Nog een keer je wachtwoord</td><td>
+    <%= f.password_field :password_confirmation %></td>
+  </tr>
+<tr><td></td><td>
+  <%= f.submit "Verander mijn wachtwoord en log me in!" %>
+</td></tr>
+<% end %>
