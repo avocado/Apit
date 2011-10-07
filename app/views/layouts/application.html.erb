@@ -11,7 +11,7 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <h3><%= link_to 'DOKTERS 2012', '#' %></h3>
+          <h3><%= link_to 'Apit', '#' %></h3>
 					<ul class="nav<%=" editable".html_safe if can? :create, Page %>">
 						<%= render :partial=>"menu/menu" , :locals=>{:pages=>@root_page.children, :parent_id=>@root_page.id }%>
 					 </ul>
@@ -28,7 +28,7 @@
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
       <footer>
-        <p>&copy; De dokters van 2012</p>
+        <p>&copy; Apit</p>
       </footer>
     </div>
   </body>
