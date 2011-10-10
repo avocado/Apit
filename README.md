@@ -1,7 +1,7 @@
 APit
 ====
 
-Easy-start Rails package, saving you the trouble of repeatedly biultindg the same basic functionality for a website:
+Starter kit for Rails-based websites, saving you the trouble of building the same basic functionality over and over again:
 
   * User management
   * User authorization
